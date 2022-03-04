@@ -1,16 +1,32 @@
-package inventory;
+package inventory.models;
 
 import org.jetbrains.annotations.*;
 
-@NotNull class Item
+/**
+ * 货物条目
+ */
+@NotNull
+public class Item
 {
+    /**
+     * 货物编号
+     */
     @NotNull
     private final String _number;
-    private String _supplier;
-    private final String _description;
+    /**
+     * 货物数量
+     */
     private int _quantity;
+    /**
+     * 货物提供商（客户）
+     */
+    private String _supplier;
+    /**
+     * 货物描述
+     */
+    private final String _description;
 
-    Item(@NotNull String number, int quantity, String supplier, String description)
+    public Item(@NotNull String number, int quantity, String supplier, String description)
     {
         _number = number;
         _quantity = quantity;
@@ -19,7 +35,7 @@ import org.jetbrains.annotations.*;
     }
 
     @NotNull
-    String getNumber()
+    public String getNumber()
     {
         return _number;
     }

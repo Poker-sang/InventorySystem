@@ -1,14 +1,24 @@
-package inventory;
+package inventory.uitls;
 
+import inventory.interfaces.*;
+import inventory.interfaces.Serializable;
+import inventory.models.*;
 import org.jetbrains.annotations.*;
 
 import java.io.*;
 import java.util.*;
 
-import static inventory.Paths.*;
+import static inventory.uitls.Paths.*;
 
-@NotNull class ErrorUtils implements Push, Serialize
+/**
+ * 错误相关功能
+ */
+@NotNull
+public class ErrorUtils implements Push, Serializable
 {
+    /**
+     * 错误列表
+     */
     @NotNull
     private final Queue<@NotNull Transaction> _error = new LinkedList<>();
 

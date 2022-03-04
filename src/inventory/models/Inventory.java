@@ -1,36 +1,35 @@
-package inventory;
+package inventory.models;
 
+import inventory.interfaces.Serializable;
 import org.jetbrains.annotations.*;
 
 import java.io.*;
 import java.util.*;
 
-import static inventory.Paths.*;
+import static inventory.uitls.Paths.*;
 
-@NotNull class Inventory implements Serialize
+/**
+ * 库存
+ */
+@NotNull
+public class Inventory implements Serializable
 {
+    /**
+     * 库存
+     */
     @NotNull
     private final Map<@NotNull String, @NotNull Item> _inventory;
 
-    Inventory(@NotNull Map<String, Item> inventory)
+    public Inventory(@NotNull Map<String, Item> inventory)
     {
         _inventory = inventory;
     }
 
+    /**
+     * 处理判断新事务
+     */
     @NotNull
-    static Map<String, Item> readFromFile()
-    {
-        var tempReturn = new HashMap<String, Item>();
-        while (FileScanner.INVENTORY_SCANNER.hasNextLine())
-        {
-            var next = FileScanner.INVENTORY_SCANNER.nextLine().split("\\s+");
-            tempReturn.put(next[0], new Item(next[0], Integer.parseInt(next[1]), next[2], next[3]));
-        }
-        return tempReturn;
-    }
-
-    @NotNull
-    Result newTransaction(Transaction transaction)
+    public Result newTransaction(Transaction transaction)
     {
         var newItem = transaction.item();
         switch (transaction.kind())
@@ -67,8 +66,22 @@ import static inventory.Paths.*;
         writer.close();
     }
 
-    enum Result
+    /**
+     * 处理结果
+     */
+    public enum Result
     {
-        DEFAULT, SHIPPING, ERROR
+        /**
+         * 正常（进货、添加、删除）
+         */
+        DEFAULT,
+        /**
+         * 发货
+         */
+        SHIPPING,
+        /**
+         * 错误（发货、删除）
+         */
+        ERROR
     }
 }
