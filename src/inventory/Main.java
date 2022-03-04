@@ -1,13 +1,16 @@
 package inventory;
 
+import inventory.models.*;
+import inventory.uitls.*;
+
 import java.io.*;
 
 class Main
 {
     public static void main(String[] args) throws IOException
     {
-        var transactions = Transaction.readFromFile();
-        var inventory = new Inventory(Inventory.readFromFile());
+        var transactions = new TransactionsDeserializer().deserialize();
+        var inventory = new Inventory(new InventoryDeserializer().deserialize());
         var errorUtils = new ErrorUtils();
         var shippingUtils = new ShippingUtils();
         for (var transaction : transactions)
