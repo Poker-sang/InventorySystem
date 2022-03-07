@@ -1,4 +1,4 @@
-package inventory.uitls;
+package inventory.utils;
 
 import inventory.interfaces.Serializable;
 import inventory.interfaces.*;
@@ -8,7 +8,7 @@ import org.jetbrains.annotations.*;
 import java.io.*;
 import java.util.*;
 
-import static inventory.uitls.Paths.*;
+import static inventory.utils.Paths.*;
 
 /**
  * 发货相关功能

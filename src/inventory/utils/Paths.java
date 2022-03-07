@@ -1,4 +1,4 @@
-package inventory.uitls;
+package inventory.utils;
 
 import org.jetbrains.annotations.*;
 

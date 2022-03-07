@@ -1,7 +1,7 @@
 package inventory;
 
 import inventory.models.*;
-import inventory.uitls.*;
+import inventory.utils.*;
 
 import java.io.*;
 

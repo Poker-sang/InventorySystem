@@ -6,7 +6,7 @@ import org.jetbrains.annotations.*;
 import java.io.*;
 import java.util.*;
 
-import static inventory.uitls.Paths.*;
+import static inventory.utils.Paths.*;
 
 /**
  * 库存

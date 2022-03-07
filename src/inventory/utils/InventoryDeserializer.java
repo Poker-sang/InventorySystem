@@ -1,4 +1,4 @@
-package inventory.uitls;
+package inventory.utils;
 
 import inventory.interfaces.*;
 import inventory.models.*;
@@ -7,7 +7,7 @@ import org.jetbrains.annotations.*;
 import java.io.*;
 import java.util.*;
 
-import static inventory.uitls.Paths.*;
+import static inventory.utils.Paths.*;
 
 /**
  * 货物反序列化器
